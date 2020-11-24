@@ -5,7 +5,7 @@ services:
     image: mongo:latest
     container_name: mongo
     env_file:
-      - ./database-enviroments.env
+      - ./database.env
 #    environment:
 #      - MYSQL_USER=root
 #      - MYSQL_PASSWORD=root
@@ -14,16 +14,16 @@ services:
     networks: 
       - spring
     
-  udemy_sbhrestijwts3msqlmdb3:
+  udemy_sbhrestijwts3msqlmdb5:
     build:
       context: ./
       dockerfile: Dockerfile
     image: maven:3-openjdk-15-slim
-    container_name: udemy_sbhrestijwts3msqlmdb3
+    container_name: udemy_sbhrestijwts3msqlmdb5
     ports: 
       - "8080:8080"
-    env_file:
-      - ./project-enviroments.env
+#    env_file:
+#      - ./project.env
     networks: 
       - spring
 
