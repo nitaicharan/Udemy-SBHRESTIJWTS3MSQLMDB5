@@ -18,17 +18,16 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: maven:3-openjdk-11-slim
+    image: maven:3-openjdk-15-slim
     container_name: udemy_sbhrestijwts3msqlmdb5
+    depends_on: 
+      - mongo
     ports: 
       - "8080:8080"
     env_file:
       - ./dev.env
     networks: 
       - spring
-
-
-
 
 networks:
   spring:
