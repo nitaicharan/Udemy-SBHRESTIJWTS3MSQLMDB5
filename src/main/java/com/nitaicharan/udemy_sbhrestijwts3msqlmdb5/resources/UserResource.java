@@ -1,26 +1,27 @@
 package com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.resources;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.domain.User;
+import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.services.UserService;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.AllArgsConstructor;
+
 @RestController
+@AllArgsConstructor
 @RequestMapping(value = "/users")
 public class UserResource {
 
-	@RequestMapping(method = RequestMethod.GET)
+	private UserService service;
+
+	@GetMapping
 	public ResponseEntity<List<User>> findAll() {
-		User maria = User.builder().id("1").name("Maria Brown").email("maria@gmail.com").build();
-		User alex = User.builder().id("2").name("Alex Green").email("alex@gmail.com").build();
-		List<User> list = new ArrayList<>();
-		list.addAll(Arrays.asList(maria, alex));
+		List<User> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
 }

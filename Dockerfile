@@ -1,4 +1,4 @@
-FROM maven:3-openjdk-15-slim AS build
+FROM maven:3-openjdk-11-slim AS build
 
 WORKDIR /tmp/udemy_sbhrestijwts3msqlmdb5/
 

@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  mariadb:
+  mongo:
     image: mongo:latest
     container_name: mongo
     env_file:
@@ -18,12 +18,12 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    image: maven:3-openjdk-15-slim
+    image: maven:3-openjdk-11-slim
     container_name: udemy_sbhrestijwts3msqlmdb5
     ports: 
       - "8080:8080"
-#    env_file:
-#      - ./project.env
+    env_file:
+      - ./dev.env
     networks: 
       - spring
 
