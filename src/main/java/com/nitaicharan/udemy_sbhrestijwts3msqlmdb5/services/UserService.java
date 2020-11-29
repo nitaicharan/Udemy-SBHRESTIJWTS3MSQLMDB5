@@ -3,7 +3,6 @@ package com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.services;
 import java.util.List;
 
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.domain.User;
-import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.dto.UserDTO;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.repository.UserRepository;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.services.exception.ObjectNotFoundException;
 
