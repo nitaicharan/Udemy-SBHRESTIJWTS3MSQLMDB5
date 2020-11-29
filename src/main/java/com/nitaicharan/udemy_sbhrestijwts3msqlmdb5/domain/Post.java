@@ -1,9 +1,12 @@
 package com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.dto.AuthorDTO;
+import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.dto.CommentDTO;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -23,4 +26,6 @@ public class Post implements Serializable {
 	private String title;
 	private String body;
 	private AuthorDTO author;
+	@Builder.Default
+	private List<CommentDTO> comments = new ArrayList<>();
 }
