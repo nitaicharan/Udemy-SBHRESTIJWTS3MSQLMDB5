@@ -5,7 +5,9 @@ import java.io.Serializable;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Builder;
+import lombok.Getter;
 
+@Getter
 @Builder
 @Document
 public class User implements Serializable {

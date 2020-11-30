@@ -1,8 +1,9 @@
 package com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.resources;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
-import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.domain.User;
+import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.dto.UserDTO;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.services.UserService;
 
 import org.springframework.http.ResponseEntity;
@@ -20,8 +21,11 @@ public class UserResource {
 	private UserService service;
 
 	@GetMapping
-	public ResponseEntity<List<User>> findAll() {
-		List<User> list = service.findAll();
+	public ResponseEntity<List<UserDTO>> findAll() {
+		var list = service.findAll().stream()//
+				.map(UserDTO::new)//
+				.collect(Collectors.toList());
+
 		return ResponseEntity.ok().body(list);
 	}
 }

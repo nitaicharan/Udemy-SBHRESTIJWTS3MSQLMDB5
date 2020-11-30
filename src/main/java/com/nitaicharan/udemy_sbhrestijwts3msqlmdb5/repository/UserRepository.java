@@ -1,6 +1,5 @@
 package com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.repository;
 
-
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.domain.User;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
