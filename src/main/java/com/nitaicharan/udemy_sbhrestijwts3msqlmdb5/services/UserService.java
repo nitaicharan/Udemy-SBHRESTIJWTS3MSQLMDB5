@@ -3,6 +3,7 @@ package com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.services;
 import java.util.List;
 
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.domain.User;
+import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.dto.UserDTO;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.repository.UserRepository;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.services.exception.ObjectNotFoundException;
 
@@ -32,5 +33,16 @@ public class UserService {
     public void delete(String id) {
         findById(id);
         repo.deleteById(id);
+    }
+
+    public User update(User obj) {
+        User newObj = findById(obj.getId());
+        updateData(newObj, obj);
+        return repo.save(newObj);
+    }
+
+    private void updateData(User newObj, User obj) {
+        newObj.setName(obj.getName());
+        newObj.setEmail(obj.getEmail());
     }
 }
