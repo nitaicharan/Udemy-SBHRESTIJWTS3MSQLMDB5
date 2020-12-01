@@ -6,13 +6,14 @@ import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.domain.User;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.repository.UserRepository;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.services.exception.ObjectNotFoundException;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class UserService {
 
-    @Autowired
     private UserRepository repo;
 
     public List<User> findAll() {
@@ -26,5 +27,10 @@ public class UserService {
 
     public User insert(User obj) {
         return repo.insert(obj);
+    }
+
+    public void delete(String id) {
+        findById(id);
+        repo.deleteById(id);
     }
 }
