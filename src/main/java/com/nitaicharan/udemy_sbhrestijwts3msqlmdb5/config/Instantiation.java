@@ -6,6 +6,7 @@ import java.util.TimeZone;
 
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.domain.Post;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.domain.User;
+import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.dto.AuthorDTO;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.repository.PostRepository;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.repository.UserRepository;
 
@@ -35,9 +36,9 @@ public class Instantiation implements CommandLineRunner {
 		userReposiroty.saveAll(Arrays.asList(maria, alex, bob));
 
 		var post1 = Post.builder().date(sdf.parse("21/03/2018")).title("Partiu viagem")
-				.body("Vou viajar para São Paulo. Abraços!").author(maria).build();
+				.body("Vou viajar para São Paulo. Abraços!").author(new AuthorDTO(maria)).build();
 		var post2 = Post.builder().date(sdf.parse("23/03/2018")).title("Bom dia").body("Acordei feliz hoje!")
-				.author(maria).build();
+				.author(new AuthorDTO(maria)).build();
 
 		postReposiroty.saveAll(Arrays.asList(post1, post2));
 	}
