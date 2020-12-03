@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.domain.Post;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.domain.User;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.dto.UserDTO;
 import com.nitaicharan.udemy_sbhrestijwts3msqlmdb5.services.UserService;
@@ -61,5 +62,11 @@ public class UserResource {
 		User obj = dto.toEntity();
 		obj.setId(id);
 		return ResponseEntity.noContent().build();
+	}
+
+	@GetMapping("/{id}/posts")
+	public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+		User obj = service.findById(id);
+		return ResponseEntity.ok().body(obj.getPosts());
 	}
 }
